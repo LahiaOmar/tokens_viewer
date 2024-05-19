@@ -5,5 +5,9 @@ This repository houses an implementation of the Byte Pair Encoding (BPE) algorit
  - Basic BPE Implementation.
   ![basic_bpe](./src/assets/bpe.png)
 
+ 
+❤️ This work is mostly inspired from the Youtube [video](https://www.youtube.com/watch?v=zduSFxRajkE)
+ talking about Tokenization by the talented **Andrej Karpathy** [twitter](https://x.com/karpathy)
+
 ## Deployed version
 - [bpetokensviewer](https://bpetokensviewer.netlify.app/)

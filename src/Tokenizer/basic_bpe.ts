@@ -61,7 +61,7 @@ const encoder = (input: string) => {
 
 
   let idx = 257
-  const map_tokens = {}
+  const map_tokens: TTokensMap = {}
 
   while(tokens.length >= 2){  
     const pairs = count_pair(tokens)

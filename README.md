@@ -4,3 +4,6 @@ This repository houses an implementation of the Byte Pair Encoding (BPE) algorit
 
  - Basic BPE Implementation.
   ![basic_bpe](./src/assets/bpe.png)
+
+## Deployed version
+- [bpetokensviewer](https://bpetokensviewer.netlify.app/)

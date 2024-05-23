@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, ReactNode } from "react"
 import { TToken } from "../Tokenizer/types"
 
 interface ITokenViewer { 
@@ -34,17 +34,40 @@ const TokenViewer: FC<ITokenViewer> = ({ token, format, hovredToken, tokenStrCol
       break;
     }
   }
-
-  return (
-    <span 
+  
+  const Container = ( { children }:  { children : ReactNode} ) => {
+    
+    return (
+      <span 
       className="text-lg hover:cursor-pointer" 
       style={style} 
       onMouseEnter={() => setHovredToken(token)} 
       onMouseLeave={() => setHovredToken(null)} 
       onBlur={() => setHovredToken(null)}
       data-token={token}>
-      { format === 'decoded' ? stringValue : `${token} ` }
-    </span>       
+      { children }
+    </span>     
+    )
+  }
+
+  const renderStringValue = (str: string) => {
+    return str.split('\n').map((cur, index) => {
+      if(index === 0){
+        return <Container>{ cur }</Container>
+      }
+      
+      return [<br />, <Container>{cur}</Container>]
+    })
+
+  }
+  return (
+    <>
+      {
+        format === 'decoded' 
+        ? renderStringValue(stringValue) 
+        : <Container>{`${token} `}</Container>
+      }
+    </>     
   )
 }
 

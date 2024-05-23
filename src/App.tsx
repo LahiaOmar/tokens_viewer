@@ -31,10 +31,10 @@ function App() {
 
  useEffect(() => {
   if(!tokenizerSelected) return
-
+  
   const { encoder } = bpe_used()
   const { tokens: _tokens, map_tokens } = encoder(content) 
-
+  
   setTokens(_tokens)
   setMapTokens(map_tokens)
  }, [content, tokenizerSelected])
@@ -45,9 +45,9 @@ function App() {
   tokens.forEach(token => {
     let str = ''
     const color = generateRandomColor()
-    const { utf8_decode } = bpe_used()
-
-    str = token <= 256 ? utf8_decode([token]) : find_token(token)
+    const { utf8_decode, decoder } = bpe_used()
+    
+    str = utf8_decode(decoder([token], mapTokens))
 
     if(!map_token_string[token]){
       map_token_string[token] = {
@@ -62,13 +62,6 @@ function App() {
 
   const textAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(e.target.value)
-  }
-
-  const find_token = (token : number) => {
-    const { decoder, utf8_decode } = bpe_used()
-    const decoded = decoder([token], mapTokens)
-
-    return utf8_decode(decoded)
   }
 
   return (

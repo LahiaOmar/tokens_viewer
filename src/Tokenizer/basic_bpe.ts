@@ -91,7 +91,7 @@ const decoder = (tokens: TToken[], map_tokens: TTokensMap) => {
     for(let i = 0; i < _tokens.length; i++){
       if(map_tokens[_tokens[i]]){
         const [first, second] = map_tokens[_tokens[i]].split(',').map(a => parseInt(a))
-
+          
         current.push(first)
         current.push(second)
         
@@ -104,14 +104,20 @@ const decoder = (tokens: TToken[], map_tokens: TTokensMap) => {
     
     if(!flag){
       break;
-    }
+    }   
   }
 
   return _tokens
 }
 
+const special_caracters: {[key: number] : string} = {
+  [utf8_encode(" ")[0]] : ' ',
+  [utf8_encode("\n")[0]]: '\n'
+}
+
 export const basic_bpe = {
   encoder,
   decoder,
-  utf8_decode
+  utf8_decode,
+  special_caracters
 }

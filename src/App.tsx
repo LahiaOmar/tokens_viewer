@@ -41,12 +41,11 @@ function App() {
 
  useEffect(() => {
   const map_token_string: {[key: string] : {str: string, color: string}} = {}
+  const { utf8_decode, decoder } = bpe_used()
 
   tokens.forEach(token => {
     let str = ''
     const color = generateRandomColor()
-    const { utf8_decode, decoder } = bpe_used()
-    
     str = utf8_decode(decoder([token], mapTokens))
 
     if(!map_token_string[token]){

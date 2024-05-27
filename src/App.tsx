@@ -69,9 +69,9 @@ function App() {
       <div className='flex w-full max-w-7xl space-y-5 flex-col justify-center font-mono'>
         <span className='text-center text-3xl p-2'>Tokenizer Token Viewer</span>
         <div className='flex flex-col space-y-5'>
-          <div className='flex p-5 h-96 space-x-4'>
+          <div className='flex p-5 space-x-4'>
             <div className='flex w-1/2 justify-center items-center border hover:border-blue-400'>
-              <textarea className='p-4 w-full h-full whitespace-nowrap shadow-sm border bg-slate-50 border-gray-400' 
+              <textarea className='p-4 min-h-96 resize-y w-full h-full whitespace-nowrap shadow-sm border bg-slate-50 border-gray-400' 
                 value={content} 
                 onChange={textAreaChange}
                 placeholder='Insert some text/code ...' />

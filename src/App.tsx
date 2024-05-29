@@ -68,14 +68,14 @@ function App() {
       <div className='flex w-full max-w-7xl space-y-5 flex-col justify-center font-mono'>
         <span className='text-center text-3xl p-2'>Tokenizer Token Viewer</span>
         <div className='flex flex-col space-y-5'>
-          <div className='flex p-5 space-x-4'>
-            <div className='flex w-1/2 justify-center items-center border hover:border-blue-400'>
+          <div className='flex p-5 sm:space-x-4 max-sm:space-y-4 max-sm:flex-col'>
+            <div className='flex sm:w-1/2 max-sm:w-full justify-center items-center border hover:border-blue-400'>
               <textarea className='p-4 min-h-96 resize-y w-full h-full whitespace-nowrap shadow-sm border bg-slate-50 border-gray-400' 
                 value={content} 
                 onChange={textAreaChange}
                 placeholder='Insert some text/code ...' />
             </div>
-            <div className='w-1/2 items-center justify-center space-y-4'>
+            <div className='sm:w-1/2 max-sm:w-full items-center justify-center space-y-4'>
               <div className='flex flex-col space-y-4 border border-gray-400 hover:border-blue-400 p-4 bg-slate-50 rounded-lg'>
                 <TokenizerSelector onChange={(name) => setTokenizerSelected(name)} />
               </div>
@@ -85,7 +85,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className='flex p-5 space-x-4'>
+          <div className='flex p-5 sm:space-x-4 max-sm:space-y-4 max-sm:flex-col'>
             <TokensContainer title='Tokens Mapping'>
               {
                 tokens.map(token => <TokenViewer tokenStrColor={tokenStrColor[token]} setHovredToken={setHovredToken} token={token} format='decoded' hovredToken={hovredToken} />)
